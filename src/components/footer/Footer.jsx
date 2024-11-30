@@ -118,7 +118,7 @@ const Footer = () => {
       <div className="container mx-auto lg:px-32 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
         {/* Copyright */}
         <p className="text-gray-600 text-sm text-center md:text-left">
-          Copyright © 2023 ODYSSIA. All rights reserved.
+          Copyright © 2023 CATTA FASHIONS. All rights reserved.
         </p>
 
         {/* Social Icons */}
