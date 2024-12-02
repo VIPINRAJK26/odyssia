@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
 
-
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navbarRef = useRef(null); // Ref for detecting outside clicks
+
+  // Close the menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <div className="w-full border-b">
@@ -58,13 +69,16 @@ const Navbar = () => {
       </div>
 
       {/* Main Navbar */}
-      <div className="container mx-auto flex justify-between items-center px-4 lg:px-32 py-2 bg-white">
+      <div
+        ref={navbarRef}
+        className="container mx-auto flex justify-between items-center px-4 lg:px-32 py-2 bg-white"
+      >
         {/* Logo */}
         <div className="text-red-600 font-bold text-lg flex items-center">
           <img
-            src="https://img.freepik.com/premium-vector/colorful-bird-gradient-illustration-logo-concept_1253202-1537.jpg?ga=GA1.1.1208105082.1712396076&semt=ais_hybrid"
+            src="\Catta Fashion nav-logo.png"
             alt="Logo"
-            className="w-14 mr-2"
+            className="w-32 mr-2"
           />
         </div>
 
@@ -93,7 +107,7 @@ const Navbar = () => {
         <nav
           className={`${
             isMenuOpen ? "block" : "hidden"
-          } lg:flex lg:space-x-6 bg-white py-2 w-full lg:w-auto`}
+          } lg:flex lg:space-x-6 bg-white py-2 w-full lg:w-auto z-10 absolute top-16 left-0 right-0 lg:static lg:flex-row lg:space-x-4`}
         >
           {[
             "Home",
@@ -106,10 +120,11 @@ const Navbar = () => {
             "New Arrivals",
           ].map((item, index) => (
             <div key={index} className="relative group">
-              <button className="text-md font-medium hover:text-red-600">
+              {/* Mobile version: No dropdown on item click */}
+              <button className="text-md font-medium hover:text-red-600 block px-4 py-2 w-full">
                 {item}
               </button>
-              {/* Dropdown */}
+              {/* Desktop version dropdown */}
               <div className="absolute left-0 hidden group-hover:block bg-white shadow-md rounded mt-2 py-2">
                 <a
                   href={`#${item.toLowerCase()}`}
