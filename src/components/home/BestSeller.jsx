@@ -92,7 +92,7 @@ export default function BestSeller() {
 
         <div className="mt-6 grid grid-cols-1 gap-x-2 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-6">
           {products.map((product) => (
-            <div key={product.id} className="group relative border border-gray-500 p-4 hover:border-red-600 rounded-md">
+            <div key={product.id} className="group relative shadow-md p-4 hover:shadow-xl rounded-md">
               <img
                 alt={product.imageAlt}
                 src={product.imageSrc}
