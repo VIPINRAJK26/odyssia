@@ -10,62 +10,51 @@ const Footer = () => {
         {/* My Account Section */}
         <div>
           <h3 className="font-bold text-lg mb-4">MY ACCOUNT</h3>
-          <ul className="space-y-2">
-            <li>
-              <a href="#" className="text-gray-700 hover:text-black">
-                Login/Register
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-gray-700 hover:text-black">
-                My Wishlist
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-gray-700 hover:text-black">
-                My Orders
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-gray-700 hover:text-black">
-                Track order
-              </a>
-            </li>
-          </ul>
+          <div>
+            <p className=" text-gray-700">
+              Catta Fashions LLP, established in 2018, specializes in
+              manufacturing and distributing high-quality footwear for all age
+              groups. Combining modern designs with top-notch craftsmanship, we
+              deliver stylish, durable, and comfortable products that cater to
+              diverse preferences. Committed to quality and service, we are a
+              trusted partner for retailers and customers, making us a preferred
+              name in the footwear industry
+            </p>
+          </div>
         </div>
 
         {/* Help Section */}
         <div>
-          <h3 className="font-bold text-lg mb-4">LET US HELP YOU</h3>
+          <h3 className="font-bold text-lg mb-4">ADDRESS</h3>
           <ul className="space-y-2">
             <li>
               <a href="#" className="text-gray-700 hover:text-black">
-                FAQ
+                CATTA FASHIONS LLP
               </a>
             </li>
             <li>
               <a href="#" className="text-gray-700 hover:text-black">
-                Privacy Policy
+                11/259, Cherur Road Kazhukanchina,
               </a>
             </li>
             <li>
               <a href="#" className="text-gray-700 hover:text-black">
-                Refund Policy
+                Cherur, PO; Vengara, Malappuram, Kerala
               </a>
             </li>
             <li>
               <a href="#" className="text-gray-700 hover:text-black">
-                Terms & Condition
+                India - PIN 676304
               </a>
             </li>
             <li>
               <a href="#" className="text-gray-700 hover:text-black">
-                Size Chart
+                Ph/WhatsApp : +91 90613 95430
               </a>
             </li>
             <li>
               <a href="#" className="text-gray-700 hover:text-black">
-                Store Locator
+                Email : cattafashion@gmail.com
               </a>
             </li>
           </ul>

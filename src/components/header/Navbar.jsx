@@ -21,7 +21,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="w-full border-b">
+    <div className="w-full border-b sticky top-0 z-20">
       {/* Top Section */}
       <div className="container mx-auto flex justify-between items-center px-4 lg:px-32 py-2 bg-gray-100">
         {/* Moving Text */}

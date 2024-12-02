@@ -3,8 +3,43 @@ const products = [
     id: 1,
     name: "Basic Tee",
     href: "#",
-    imageSrc:
-      "https://img.freepik.com/free-photo/shot-black-leather-heels-decorated-with-leather-belt-isolated-white_181624-32608.jpg?ga=GA1.1.1208105082.1712396076&semt=ais_hybrid",
+    imageSrc: "/1029 PEACH L.jpg",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "$35",
+    color: "Black",
+  },
+  {
+    id: 1,
+    name: "Basic Tee",
+    href: "#",
+    imageSrc: "/2001 eblue L.jpg",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "$35",
+    color: "Black",
+  },
+  {
+    id: 1,
+    name: "Basic Tee",
+    href: "#",
+    imageSrc: "/2686 GRAPE L.jpg",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "$35",
+    color: "Black",
+  },
+  {
+    id: 1,
+    name: "Basic Tee",
+    href: "#",
+    imageSrc: "/2727 GREY L.jpg",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "$35",
+    color: "Black",
+  },
+  {
+    id: 1,
+    name: "Basic Tee",
+    href: "#",
+    imageSrc: "/3959  MEHANDHI L.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
@@ -14,7 +49,7 @@ const products = [
     name: "Basic Tee",
     href: "#",
     imageSrc:
-      "https://img.freepik.com/premium-photo/original-black-mens-sports-shoes-isolated_94064-692.jpg?ga=GA1.1.1208105082.1712396076&semt=ais_hybrid",
+      "/GI 3905 PEACH.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
@@ -24,7 +59,7 @@ const products = [
     name: "Basic Tee",
     href: "#",
     imageSrc:
-      "https://img.freepik.com/premium-photo/black-boots-leather-men-isolated-white-background_250899-339.jpg?ga=GA1.1.1208105082.1712396076&semt=ais_hybrid",
+      "/B 3521 MULTY.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
@@ -34,7 +69,7 @@ const products = [
     name: "Basic Tee",
     href: "#",
     imageSrc:
-      "https://img.freepik.com/free-photo/shot-elegant-beautiful-leather-heels-isolated-white_181624-32574.jpg?ga=GA1.1.1208105082.1712396076&semt=ais_hybrid",
+      "/B 3550 mehandhi.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
@@ -44,7 +79,7 @@ const products = [
     name: "Basic Tee",
     href: "#",
     imageSrc:
-      "https://img.freepik.com/premium-photo/elegant-male-shoes-white-background_392895-575797.jpg?ga=GA1.1.1208105082.1712396076&semt=ais_hybrid",
+      "/B 3550 mehandhi.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
@@ -54,7 +89,7 @@ const products = [
     name: "Basic Tee",
     href: "#",
     imageSrc:
-      "https://img.freepik.com/premium-photo/leather-black-men-s-shoes-white-background_113913-502.jpg?ga=GA1.1.1208105082.1712396076&semt=ais_hybrid",
+      "/GI 26703 E. BLUE.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
@@ -64,7 +99,7 @@ const products = [
     name: "Basic Tee",
     href: "#",
     imageSrc:
-      "https://img.freepik.com/free-photo/fashion-shoes_74190-2601.jpg?ga=GA1.1.1208105082.1712396076&semt=ais_hybrid",
+      "/G 0275 PEACH.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
@@ -74,12 +109,11 @@ const products = [
     name: "Basic Tee",
     href: "#",
     imageSrc:
-      "https://img.freepik.com/premium-photo/elegant-women-s-shoes-with-laces-isolated-white-surface-fashionable-school-shoes_94064-4330.jpg?ga=GA1.1.1208105082.1712396076&semt=ais_hybrid",
+      "/B 5506 GREY.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
   },
-  
 ];
 
 export default function BestSeller() {
@@ -96,7 +130,7 @@ export default function BestSeller() {
               <img
                 alt={product.imageAlt}
                 src={product.imageSrc}
-                className="aspect-square w-full rounded-md bg-gray-600 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-60"
+                className="aspect-square w-full rounded-md bg-gray-600 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-3/4"
               />
               <div className="mt-4 flex justify-between bg-gray-100 p-2 rounded-lg">
                 <div>
