@@ -60,9 +60,9 @@ const Navbar = () => {
 
         {/* Links */}
         <div className="hidden lg:flex space-x-4 text-sm">
-          <a href="#about" className="hover:underline">
+          <Link to={"/"} className="hover:underline">
             About us
-          </a>
+          </Link>
           <Link to={"/contact"} className="hover:underline">
             Contact us
           </Link>
