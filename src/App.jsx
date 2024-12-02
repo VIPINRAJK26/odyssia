@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Footer from "./components/footer/Footer";
 import Whatsapp from "./components/whatsapp icon/WhatsApp";
+import contact from "./pages/Contact";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<contact />} />
       </Routes>
       <Whatsapp/>
       <Footer/>

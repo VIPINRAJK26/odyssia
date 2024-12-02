@@ -1,12 +1,6 @@
-import React from "react";
-import {
-  FaFacebookF,
-  FaYoutube,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaFacebookF, FaYoutube, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-
-import { SiVisa, SiMastercard } from "react-icons/si";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -92,9 +86,9 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="text-gray-700 hover:text-black">
+              <Link to={"/contact"} className="text-gray-700 hover:text-black">
                 Contact Us
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#" className="text-gray-700 hover:text-black">
@@ -116,11 +110,9 @@ const Footer = () => {
       {/* Bottom Section */}
       <div className="container mx-auto lg:px-32 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
         <div>
-          <img
-            src="\Catta Fashion nav-logo.png"
-            alt=""
-            className="w-32"
-          />
+          <Link to={"/"}>
+            <img src="\Catta Fashion nav-logo.png" alt="" className="w-32" />
+          </Link>
         </div>
         {/* Copyright */}
         <p className="text-gray-600 text-sm text-center md:text-left">

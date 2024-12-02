@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,9 +63,9 @@ const Navbar = () => {
           <a href="#about" className="hover:underline">
             About us
           </a>
-          <a href="#contact" className="hover:underline">
+          <Link to={"/contact"} className="hover:underline">
             Contact us
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -75,11 +76,13 @@ const Navbar = () => {
       >
         {/* Logo */}
         <div className="text-red-600 font-bold text-lg flex items-center">
-          <img
-            src="\Catta Fashion nav-logo.png"
-            alt="Logo"
-            className="w-32 mr-2"
-          />
+          <Link to={"/"}>
+            <img
+              src="\Catta Fashion nav-logo.png"
+              alt="Logo"
+              className="w-32 mr-2"
+            />
+          </Link>
         </div>
 
         {/* Hamburger Menu (Mobile) */}
@@ -107,7 +110,7 @@ const Navbar = () => {
         <nav
           className={`${
             isMenuOpen ? "block" : "hidden"
-          } lg:flex lg:space-x-6 bg-white py-2 w-full lg:w-auto z-10 absolute top-16 left-0 right-0 lg:static lg:flex-row lg:space-x-4`}
+          } lg:flex bg-white py-2 w-full lg:w-auto z-10 absolute top-16 left-0 right-0 lg:static lg:flex-row lg:space-x-4`}
         >
           {[
             "Home",
@@ -124,27 +127,30 @@ const Navbar = () => {
               <button className="text-md font-medium hover:text-red-600 block px-4 py-2 w-full">
                 {item}
               </button>
-              {/* Desktop version dropdown */}
-              <div className="absolute left-0 hidden group-hover:block bg-white shadow-md rounded mt-2 py-2">
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className="block px-4 py-2 text-sm hover:bg-gray-100"
-                >
-                  {item}
-                </a>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className="block px-4 py-2 text-sm hover:bg-gray-100"
-                >
-                  {item} Option 2
-                </a>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className="block px-4 py-2 text-sm hover:bg-gray-100"
-                >
-                  {item} Option 3
-                </a>
-              </div>
+
+              {/* Only show dropdown for items other than "Home" */}
+              {item !== "Home" && (
+                <div className="absolute left-0 hidden group-hover:block bg-white shadow-md rounded mt-2 py-2">
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className="block px-4 py-2 text-sm hover:bg-gray-100"
+                  >
+                    {item}
+                  </a>
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className="block px-4 py-2 text-sm hover:bg-gray-100"
+                  >
+                    {item} Option 2
+                  </a>
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className="block px-4 py-2 text-sm hover:bg-gray-100"
+                  >
+                    {item} Option 3
+                  </a>
+                </div>
+              )}
             </div>
           ))}
         </nav>
