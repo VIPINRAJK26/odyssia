@@ -1,12 +1,11 @@
 import React from "react";
 import {
-  FaTwitter,
   FaFacebookF,
   FaYoutube,
   FaInstagram,
-  FaLinkedin,
-  FaWhatsapp,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
 import { SiVisa, SiMastercard } from "react-icons/si";
 
 const Footer = () => {
@@ -124,7 +123,7 @@ const Footer = () => {
         {/* Social Icons */}
         <div className="flex space-x-4">
           <a href="#" className="text-gray-600 hover:text-black">
-            <FaTwitter />
+            <FaXTwitter />
           </a>
           <a href="#" className="text-gray-600 hover:text-black">
             <FaFacebookF />
@@ -135,19 +134,10 @@ const Footer = () => {
           <a href="#" className="text-gray-600 hover:text-black">
             <FaInstagram />
           </a>
-          <a href="#" className="text-gray-600 hover:text-black">
-            <FaLinkedin />
-          </a>
-          <a href="#" className="text-gray-600 hover:text-black">
-            <FaWhatsapp />
-          </a>
         </div>
 
         {/* Payment Methods */}
-        <div className="flex space-x-4">
-          <SiVisa className="text-gray-600 w-8 h-8" />
-          <SiMastercard className="text-gray-600 w-8 h-8" />
-        </div>
+       
       </div>
     </footer>
   );

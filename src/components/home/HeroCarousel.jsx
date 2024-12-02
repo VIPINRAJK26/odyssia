@@ -7,7 +7,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 const HeroCarousel = () => {
   return (
-    <div className="w-full h-screen bg-gray-100">
+    <div className="w-full h-screen lg:px-32 bg-white">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
@@ -21,12 +21,12 @@ const HeroCarousel = () => {
           <div
             className="w-full h-full flex items-center justify-center bg-cover bg-center"
             style={{
-              backgroundImage: `url(https://via.placeholder.com/1920x1080)`,
+              backgroundImage: `url(https://img.freepik.com/free-vector/dark-wavy-colors-background_23-2148403785.jpg?ga=GA1.1.1208105082.1712396076&semt=ais_hybrid)`,
             }}
           >
             <div className="text-center text-white">
               <h1 className="text-4xl md:text-6xl font-bold">
-                Welcome to Odyssia
+                Welcome to CATTA FASHIONS
               </h1>
               <p className="mt-4 text-lg md:text-2xl">
                 Discover our exclusive collection
@@ -43,7 +43,7 @@ const HeroCarousel = () => {
           <div
             className="w-full h-full flex items-center justify-center bg-cover bg-center"
             style={{
-              backgroundImage: `url(https://via.placeholder.com/1920x1080?text=Slide+2)`,
+              backgroundImage: `url(https://img.freepik.com/free-photo/vivid-blurred-colorful-wallpaper-background_58702-2939.jpg?ga=GA1.1.1208105082.1712396076&semt=ais_hybrid)`,
             }}
           >
             <div className="text-center text-white">
@@ -61,7 +61,7 @@ const HeroCarousel = () => {
           <div
             className="w-full h-full flex items-center justify-center bg-cover bg-center"
             style={{
-              backgroundImage: `url(https://via.placeholder.com/1920x1080?text=Slide+3)`,
+              backgroundImage: `url(https://img.freepik.com/free-photo/vivid-blurred-colorful-background_58702-2514.jpg?ga=GA1.1.1208105082.1712396076&semt=ais_hybrid)`,
             }}
           >
             <div className="text-center text-white">
