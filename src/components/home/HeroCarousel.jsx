@@ -7,7 +7,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 const HeroCarousel = () => {
   return (
-    <div className="w-full h-screen lg:px-32 bg-white">
+    <div className="container mx-auto w-full h-screen lg:px-32 px-3 bg-white">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation

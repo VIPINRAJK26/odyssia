@@ -115,6 +115,13 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <div className="container mx-auto lg:px-32 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+        <div>
+          <img
+            src="\Catta Fashion nav-logo.png"
+            alt=""
+            className="w-32"
+          />
+        </div>
         {/* Copyright */}
         <p className="text-gray-600 text-sm text-center md:text-left">
           Copyright © 2023 CATTA FASHIONS. All rights reserved.
@@ -137,7 +144,6 @@ const Footer = () => {
         </div>
 
         {/* Payment Methods */}
-       
       </div>
     </footer>
   );
