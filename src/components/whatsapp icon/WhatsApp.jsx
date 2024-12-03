@@ -23,7 +23,7 @@ export default function Whatsapp() {
             alt="Whatsapp"
             className="video-vemo-icon btn-whatsapp"
             aria-label="WhatsApp"
-            href=""
+            href="https://wa.me/919061395430?text=welcome"
             target="_blank"
             rel="noopener noreferrer"
             onclick="gtag_report_conversion(undefined)"
