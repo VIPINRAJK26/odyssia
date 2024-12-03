@@ -1,4 +1,4 @@
-import { FaFacebookF, FaYoutube, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaYoutube, FaLinkedin, FaPinterest, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container mx-auto lg:px-32 grid grid-cols-1 md:grid-cols-3 gap-8 text-center  md:text-left">
         {/* My Account Section */}
         <div>
-          <h3 className="font-bold text-lg mb-4">MY ACCOUNT</h3>
+          <h3 className="font-bold text-lg mb-4">ABOUT US</h3>
           <div>
             <p className=" text-gray-700">
               Catta Fashions LLP, established in 2018, specializes in
@@ -121,6 +121,12 @@ const Footer = () => {
           </a>
           <a href="#" className="text-gray-600 hover:text-black">
             <FaInstagram />
+          </a>
+          <a href="#" className="text-gray-600 hover:text-black">
+            <FaLinkedin />
+          </a>
+          <a href="#" className="text-gray-600 hover:text-black">
+            <FaPinterest />
           </a>
         </div>
 

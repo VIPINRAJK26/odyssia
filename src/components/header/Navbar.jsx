@@ -114,12 +114,10 @@ const Navbar = () => {
         >
           {[
             "Home",
-            "Brands",
             "Women",
             "Men",
             "Kids",
             "Students",
-            "Backpacks",
             "New Arrivals",
           ].map((item, index) => (
             <div key={index} className="relative group">

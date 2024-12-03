@@ -130,9 +130,9 @@ export default function BestSeller() {
               <img
                 alt={product.imageAlt}
                 src={product.imageSrc}
-                className="aspect-square w-full rounded-md bg-gray-600 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-3/4"
+                className="aspect-square w-full rounded-md bg-gray-600 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-full"
               />
-              <div className="mt-4 flex justify-between bg-gray-100 p-2 rounded-lg">
+              {/* <div className="mt-4 flex justify-between bg-gray-100 p-2 rounded-lg">
                 <div>
                   <h3 className="text-sm text-gray-700">
                     <a href={product.href}>
@@ -145,7 +145,7 @@ export default function BestSeller() {
                 <p className="text-sm font-medium text-gray-900">
                   {product.price}
                 </p>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
