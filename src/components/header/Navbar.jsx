@@ -124,9 +124,18 @@ const Navbar = () => {
           ].map((item, index) => (
             <div key={index} className="relative group">
               {/* Mobile version: No dropdown on item click */}
-              <button className="text-md font-medium hover:text-red-600 block px-4 py-2 w-full">
-                {item}
-              </button>
+              {item === "Home" ? (
+                <Link
+                  to="/"
+                  className="text-md font-medium hover:text-red-600 block px-4 py-2 w-full"
+                >
+                  {item}
+                </Link>
+              ) : (
+                <button className="text-md font-medium hover:text-red-600 block px-4 py-2 w-full">
+                  {item}
+                </button>
+              )}
 
               {/* Only show dropdown for items other than "Home" */}
               {item !== "Home" && (
