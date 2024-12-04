@@ -5,6 +5,9 @@ import Home from "./pages/Home";
 import Footer from "./components/footer/Footer";
 import Whatsapp from "./components/whatsapp icon/WhatsApp";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/Privacy";
+import TermsAndConditions from "./pages/Terms";
+import RefundPolicy from "./pages/Refund";
 
 function App() {
   return (
@@ -13,6 +16,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
+        <Route path="/refund" element={<RefundPolicy />} />
       </Routes>
       <Whatsapp/>
       <Footer/>

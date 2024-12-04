@@ -1,4 +1,10 @@
-import { FaFacebookF, FaYoutube, FaLinkedin, FaPinterest, FaInstagram } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaYoutube,
+  FaLinkedin,
+  FaPinterest,
+  FaInstagram,
+} from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
@@ -104,9 +110,22 @@ const Footer = () => {
           </Link>
         </div>
         {/* Copyright */}
-        <p className="text-gray-600 text-sm text-center md:text-left">
-          Copyright © 2023 CATTA FASHIONS. All rights reserved.
-        </p>
+        <div>
+          <p className="text-gray-600 text-sm text-center md:text-left">
+            Copyright © 2023 CATTA FASHIONS. All rights reserved.
+          </p>
+          <div className="flex space-x-4 text-gray-600">
+            <Link to={"/privacy"}>
+              <p className="hover:text-blue-900">Privacy Policy</p>
+            </Link>
+            <Link to={"/terms"}>
+              <p className="hover:text-blue-900">Terms & Conditions</p>
+            </Link>
+            <Link to={"/refund"}>
+              <p className="hover:text-blue-900">Refund Policy</p>
+            </Link>
+          </div>
+        </div>
 
         {/* Social Icons */}
         <div className="flex space-x-4">
