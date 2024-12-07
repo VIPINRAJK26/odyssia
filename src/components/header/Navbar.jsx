@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
+import { Dialog, DialogPanel } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -112,54 +114,49 @@ const Navbar = () => {
             isMenuOpen ? "block" : "hidden"
           } lg:flex bg-white py-2 w-full lg:w-auto z-10 absolute top-16 left-0 right-0 lg:static lg:flex-row lg:space-x-4`}
         >
-          {[
-            "Home",
-            "Women",
-            "Men",
-            "Kids",
-            "Students",
-            "New Arrivals",
-          ].map((item, index) => (
-            <div key={index} className="relative group">
-              {/* Mobile version: No dropdown on item click */}
-              {item === "Home" ? (
-                <Link
-                  to="/"
-                  className="text-md font-medium hover:text-red-600 block px-4 py-2 w-full"
-                >
-                  {item}
-                </Link>
-              ) : (
-                <button className="text-md font-medium hover:text-red-600 block px-4 py-2 w-full">
-                  {item}
-                </button>
-              )}
-
-              {/* Only show dropdown for items other than "Home" */}
-              {item !== "Home" && (
-                <div className="absolute left-0 hidden group-hover:block bg-white shadow-md rounded mt-2 py-2">
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="block px-4 py-2 text-sm hover:bg-gray-100"
+          {["Home", "Women", "Men", "Kids", "Students", "New Arrivals"].map(
+            (item, index) => (
+              <div key={index} className="relative group">
+                {/* Mobile version: No dropdown on item click */}
+                {item === "Home" ? (
+                  <Link
+                    to="/"
+                    className="text-md font-medium hover:text-red-600 block px-4 py-2 w-full"
                   >
                     {item}
-                  </a>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="block px-4 py-2 text-sm hover:bg-gray-100"
-                  >
-                    {item} Option 2
-                  </a>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="block px-4 py-2 text-sm hover:bg-gray-100"
-                  >
-                    {item} Option 3
-                  </a>
-                </div>
-              )}
-            </div>
-          ))}
+                  </Link>
+                ) : (
+                  <button className="text-md font-medium hover:text-red-600 block px-4 py-2 w-full">
+                    {item}
+                  </button>
+                )}
+
+                {/* Only show dropdown for items other than "Home" */}
+                {item !== "Home" && (
+                  <div className="absolute left-0 hidden group-hover:block bg-white shadow-md rounded mt-2 py-2">
+                    <a
+                      href={`#${item.toLowerCase()}`}
+                      className="block px-4 py-2 text-sm hover:bg-gray-100"
+                    >
+                      {item}
+                    </a>
+                    <a
+                      href={`#${item.toLowerCase()}`}
+                      className="block px-4 py-2 text-sm hover:bg-gray-100"
+                    >
+                      {item} Option 2
+                    </a>
+                    <a
+                      href={`#${item.toLowerCase()}`}
+                      className="block px-4 py-2 text-sm hover:bg-gray-100"
+                    >
+                      {item} Option 3
+                    </a>
+                  </div>
+                )}
+              </div>
+            )
+          )}
         </nav>
 
         {/* Right Icons */}
@@ -180,6 +177,82 @@ const Navbar = () => {
             />
           </button>
         </div>
+        <Dialog
+          open={isMenuOpen}
+          onClose={setIsMenuOpen}
+          className="lg:hidden"
+        >
+          <div className="fixed inset-0 z-50" />
+          <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-neutral-100 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div className="flex items-center justify-between">
+              <a href="#" className="-m-1.5 p-1.5">
+                <img
+                  alt="nav-logo"
+                  src="\Catta Fashion nav-logo.png"
+                  className="h-8 w-auto"
+                  loading="lazy"
+                />
+              </a>
+              <button
+                type="button"
+                onClick={() => setIsMenuOpen(false)}
+                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+              </button>
+            </div>
+            <div className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-gray-500/10">
+                <div className="space-y-2 py-6">
+                  <Link
+                    to={"/"}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-green-100"
+                  >
+                    Home
+                  </Link>
+
+                  <Link
+                    to={"https://app.exapi.in/login"}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-green-100"
+                  >
+                    Women
+                  </Link>
+                  <Link
+                    to={"/pricing"}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-green-100"
+                  >
+                    Men
+                  </Link>
+                  <Link
+                    to={"/pricing"}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-green-100"
+                  >
+                    Kids
+                  </Link>
+                  <Link
+                    to={"/pricing"}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-green-100"
+                  >
+                    Kids
+                  </Link>
+                  <Link
+                    to={"/pricing"}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-green-100"
+                  >
+                    New Arrivals
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </DialogPanel>
+        </Dialog>
       </div>
     </div>
   );
