@@ -39,13 +39,25 @@ export default function BestSeller() {
                 key={product.id}
                 className="group relative shadow-md p-4 hover:shadow-xl rounded-md"
               >
-                <a href={`/product/${product.id}`}>
-                  <img
-                    alt={product.name || "Product image"}
-                    src={product.image || "/path/to/placeholder.jpg"}
-                    className="aspect-square w-full rounded-md bg-gray-600 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-full"
-                  />
-                </a>
+                <div>
+                  <a href={`/product/${product.id}`}>
+                    <img
+                      alt={product.name || "Product image"}
+                      src={product.image || "/path/to/placeholder.jpg"}
+                      className="aspect-square w-full rounded-md bg-gray-600 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-full"
+                    />
+                  </a>
+                </div>
+                <div className="mt-4 pb-2 text-center ">
+                  <a
+                    href="https://wa.me/919061395430?text=hi"
+                    target="_blank"
+                    type="button"
+                    className="p-2 border rounded-md bg-gray-200 hover:bg-gray-400"
+                  >
+                    Enquire Now
+                  </a>
+                </div>
               </div>
             ))}
         </div>

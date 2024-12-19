@@ -134,7 +134,7 @@ const Navbar = () => {
                 {/* Only show dropdown for items other than "Home" */}
                 {item !== "Home" && (
                   <div className="absolute left-0 hidden group-hover:block bg-white shadow-md rounded mt-2 py-2">
-                    <a
+                    {/* <a
                       href={`#${item.toLowerCase()}`}
                       className="block px-4 py-2 text-sm hover:bg-gray-100"
                     >
@@ -151,7 +151,7 @@ const Navbar = () => {
                       className="block px-4 py-2 text-sm hover:bg-gray-100"
                     >
                       {item}3
-                    </a>
+                    </a> */}
                   </div>
                 )}
               </div>
