@@ -20,7 +20,7 @@ export default function BestSeller() {
 
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center tracking-tight text-gray-900">
           Best Seller
         </h2>
@@ -32,34 +32,36 @@ export default function BestSeller() {
           </div>
         )}
 
-        <div className="mt-6 grid grid-cols-1 gap-x-2 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-6">
-          {Array.isArray(products) &&
-            products.map((product) => (
-              <div
-                key={product.id}
-                className="group relative shadow-md p-4 hover:shadow-xl rounded-md"
-              >
-                <div>
-                  <a href={`/product/${product.id}`}>
-                    <img
-                      alt={product.name || "Product image"}
-                      src={product.image || "/path/to/placeholder.jpg"}
-                      className="aspect-square w-full rounded-md bg-gray-600 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-full"
-                    />
-                  </a>
+        <div className="mt-6 overflow-x-auto">
+          <div className="flex gap-6">
+            {Array.isArray(products) &&
+              products.map((product) => (
+                <div
+                  key={product.id}
+                  className="min-w-[250px] max-w-[250px] flex-shrink-0 group relative shadow-md p-4 hover:shadow-xl rounded-md"
+                >
+                  <div>
+                    <a href={`/product/${product.id}`}>
+                      <img
+                        alt={product.name || "Product image"}
+                        src={product.image || "/path/to/placeholder.jpg"}
+                        className="aspect-square w-full rounded-md bg-gray-600 object-cover group-hover:opacity-75"
+                      />
+                    </a>
+                  </div>
+                  <div className="mt-4 pb-2 text-center">
+                    <a
+                      href="https://wa.me/919061395430?text=hi"
+                      target="_blank"
+                      type="button"
+                      className="p-2 border rounded-md bg-gray-200 hover:bg-gray-400"
+                    >
+                      Enquire Now
+                    </a>
+                  </div>
                 </div>
-                <div className="mt-4 pb-2 text-center ">
-                  <a
-                    href="https://wa.me/919061395430?text=hi"
-                    target="_blank"
-                    type="button"
-                    className="p-2 border rounded-md bg-gray-200 hover:bg-gray-400"
-                  >
-                    Enquire Now
-                  </a>
-                </div>
-              </div>
-            ))}
+              ))}
+          </div>
         </div>
       </div>
     </div>
