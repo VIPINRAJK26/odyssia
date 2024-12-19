@@ -3,15 +3,13 @@ import Lenis from "@studio-freight/lenis";
 
 const SmoothScroll = ({ children }) => {
   useEffect(() => {
-    // Initialize Lenis
     const lenis = new Lenis({
-      duration: 1.2, // Smooth scrolling duration
-      easing: (t) => t, // Linear easing
-      smooth: true, // Enable smooth scrolling
-      direction: "vertical", // Scroll direction
+      duration: 1.2, 
+      easing: (t) => t, 
+      smooth: true, 
+      direction: "vertical", 
     });
 
-    // Animation frame loop
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -19,7 +17,6 @@ const SmoothScroll = ({ children }) => {
 
     requestAnimationFrame(raf);
 
-    // Cleanup Lenis on component unmount
     return () => {
       lenis.destroy();
     };

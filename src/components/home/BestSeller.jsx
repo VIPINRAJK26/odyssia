@@ -1,122 +1,23 @@
-const products = [
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc: "/1029 PEACH L.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc: "/2001 eblue L.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc: "/2686 GRAPE L.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc: "/2727 GREY L.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc: "/3959  MEHANDHI L.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "/GI 3905 PEACH.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "/B 3521 MULTY.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "/B 3550 mehandhi.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "/B 3550 mehandhi.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "/GI 26703 E. BLUE.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "/G 0275 PEACH.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "/B 5506 GREY.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-];
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function BestSeller() {
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get("https://server.catta.in/products/")
+      .then((res) => {
+        console.log("API Response:", res.data);
+        setProducts(Array.isArray(res.data) ? res.data : []);
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+        setError("Failed to load products.");
+      });
+  }, []);
+
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -124,30 +25,29 @@ export default function BestSeller() {
           Best Seller
         </h2>
 
+        {error && <div className="text-red-500 text-center">{error}</div>}
+        {products.length === 0 && !error && (
+          <div className="text-gray-500 text-center">
+            No products available.
+          </div>
+        )}
+
         <div className="mt-6 grid grid-cols-1 gap-x-2 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-6">
-          {products.map((product) => (
-            <div key={product.id} className="group relative shadow-md p-4 hover:shadow-xl rounded-md">
-              <img
-                alt={product.imageAlt}
-                src={product.imageSrc}
-                className="aspect-square w-full rounded-md bg-gray-600 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-full"
-              />
-              {/* <div className="mt-4 flex justify-between bg-gray-100 p-2 rounded-lg">
-                <div>
-                  <h3 className="text-sm text-gray-700">
-                    <a href={product.href}>
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {product.name}
-                    </a>
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">{product.color}</p>
-                </div>
-                <p className="text-sm font-medium text-gray-900">
-                  {product.price}
-                </p>
-              </div> */}
-            </div>
-          ))}
+          {Array.isArray(products) &&
+            products.map((product) => (
+              <div
+                key={product.id}
+                className="group relative shadow-md p-4 hover:shadow-xl rounded-md"
+              >
+                <a href={`/product/${product.id}`}>
+                  <img
+                    alt={product.name || "Product image"}
+                    src={product.image || "/path/to/placeholder.jpg"}
+                    className="aspect-square w-full rounded-md bg-gray-600 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-full"
+                  />
+                </a>
+              </div>
+            ))}
         </div>
       </div>
     </div>

@@ -138,19 +138,19 @@ const Navbar = () => {
                       href={`#${item.toLowerCase()}`}
                       className="block px-4 py-2 text-sm hover:bg-gray-100"
                     >
-                      {item}
+                      {item}1
                     </a>
                     <a
                       href={`#${item.toLowerCase()}`}
                       className="block px-4 py-2 text-sm hover:bg-gray-100"
                     >
-                      {item} Option 2
+                      {item}2
                     </a>
                     <a
                       href={`#${item.toLowerCase()}`}
                       className="block px-4 py-2 text-sm hover:bg-gray-100"
                     >
-                      {item} Option 3
+                      {item}3
                     </a>
                   </div>
                 )}
