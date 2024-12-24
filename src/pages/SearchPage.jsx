@@ -12,40 +12,46 @@ const SearchResults = () => {
     newArrival: "",
   });
   const [filterOptions, setFilterOptions] = useState({
-    sizes: [],
+    sizes: [
+      { id: "5", value: "5" },
+      { id: "6", value: "6" },
+      { id: "7", value: "7" },
+      { id: "8", value: "8" },
+    ],
     colors: [],
   });
- 
+
   const { category } = useParams();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get("query");
 
+  // Reset filters when category or query changes
+  useEffect(() => {
+    setFilters({
+      priceRange: "",
+      color: "",
+      size: "",
+      newArrival: "",
+    });
+  }, [category, query]);
+
   useEffect(() => {
     const fetchFilterOptions = async () => {
       try {
-        const [sizes, colors] = await Promise.all([
-          axios.get("https://server.catta.in/sizes/"),
-          axios.get("https://server.catta.in/colors/"),
-        ]);
-
-        // Map size and color data to a suitable format for the dropdown
-        const sizeOptions = sizes.data.map((size) => ({
-          id: size.id,
-          value: size.size, // Assuming size is the value to be displayed
-        }));
+        const colors = await axios.get("http://127.0.0.1:8001/colors/");
 
         const colorOptions = colors.data.map((color) => ({
           id: color.id,
           value: color.product_color, // Use product_color for the color value
         }));
 
-        setFilterOptions({
-          sizes: sizeOptions || [],
+        setFilterOptions((prevOptions) => ({
+          ...prevOptions,
           colors: colorOptions || [],
-        });
+        }));
       } catch (error) {
-        console.error("Error fetching filter options:", error);
+        console.error("Error fetching color options:", error);
       }
     };
 
@@ -58,11 +64,17 @@ const SearchResults = () => {
       setLoading(true);
       try {
         const filterQuery = Object.entries(filters)
-          .filter(([, value]) => value)
-          .map(([key, value]) => `${key}=${value}`)
+          .filter(([, value]) => value) // Include only filters with a value
+          .map(([key, value]) => {
+            if (key === "newArrival" && value === "") return null; // Skip newArrival if not set
+            if (key === "newArrival") return `new_arrival=${value}`;
+            if (key === "priceRange") return `price=${value}`;
+            return `${key}=${value}`;
+          })
+          .filter(Boolean) // Remove null values
           .join("&");
 
-        const url = `https://server.catta.in/products/?category=${
+        const url = `http://127.0.0.1:8001/products/?category=${
           category || ""
         }${query ? `&q=${query}` : ""}${filterQuery ? `&${filterQuery}` : ""}`;
 
@@ -128,10 +140,11 @@ const SearchResults = () => {
             label="New Arrival"
             name="newArrival"
             options={[
-              { id: "true", value: "Yes" },
-              { id: "false", value: "No" },
+              { id: "true", value: "true" },
+              { id: "false", value: "false" },
             ]}
           />
+
           <FilterDropdown
             label="Price Range"
             name="priceRange"
