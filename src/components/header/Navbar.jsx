@@ -10,12 +10,13 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navbarRef = useRef(null); 
+  const navbarRef = useRef(null);
   const categories = [
     { name: "Women", path: "ladies" },
     { name: "Men", path: "gents" },
     { name: "Kids", path: "kids" },
-    { name: "Boys & Girls", path: "boys&girls" },
+    { name: "Boys", path: "boys" },
+    { name: "Girls", path: "girls" },
   ];
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -74,7 +75,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Links */}
+        {/* Links for larger devices */}
         <div className="hidden lg:flex space-x-4 text-sm">
           <Link to={"/"} className="hover:underline">
             About us
@@ -109,8 +110,8 @@ const Navbar = () => {
           <Bars3Icon className="w-6 h-6" />
         </button>
 
-        {/* Navigation Links */}
-        <nav className={`nav-links ${isMobileMenuOpen ? "open" : ""}`}>
+        {/* Navigation Links for larger devices */}
+        <nav className="hidden lg:flex space-x-4">
           {categories.map((category) => (
             <button
               key={category.path}
@@ -133,14 +134,13 @@ const Navbar = () => {
               className="text-gray-900 text-lg hover:text-red-600 cursor-pointer"
             />
           </button>
-            <button className="hover:text-red-600">
-              <FontAwesomeIcon
+          <button className="hover:text-red-600">
+            <FontAwesomeIcon
               icon={faUser}
               className="text-gray-900 text-lg hover:text-red-600 cursor-pointer"
             />
-            </button>
-            
-          </div>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Dialog */}
@@ -185,6 +185,5 @@ const Navbar = () => {
     </div>
   );
 };
-
 
 export default Navbar;

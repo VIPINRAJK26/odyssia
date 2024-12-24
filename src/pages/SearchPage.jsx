@@ -17,6 +17,8 @@ const SearchResults = () => {
       { id: "6", value: "6" },
       { id: "7", value: "7" },
       { id: "8", value: "8" },
+      { id: "9", value: "9" },
+      { id: "10", value: "10" },
     ],
     colors: [],
   });
@@ -39,16 +41,19 @@ const SearchResults = () => {
   useEffect(() => {
     const fetchFilterOptions = async () => {
       try {
-        const colors = await axios.get("http://127.0.0.1:8001/colors/");
+        const colors = await axios.get("https://server.catta.in/colors/");
 
-        const colorOptions = colors.data.map((color) => ({
-          id: color.id,
-          value: color.product_color, // Use product_color for the color value
+        // Use a Set to filter out duplicate colors
+        const uniqueColors = Array.from(
+          new Set(colors.data.map((color) => color.product_color))
+        ).map((color) => ({
+          id: color,
+          value: color,
         }));
 
         setFilterOptions((prevOptions) => ({
           ...prevOptions,
-          colors: colorOptions || [],
+          colors: uniqueColors || [],
         }));
       } catch (error) {
         console.error("Error fetching color options:", error);
@@ -74,7 +79,7 @@ const SearchResults = () => {
           .filter(Boolean) // Remove null values
           .join("&");
 
-        const url = `http://127.0.0.1:8001/products/?category=${
+        const url = `https://server.catta.in/products/?category=${
           category || ""
         }${query ? `&q=${query}` : ""}${filterQuery ? `&${filterQuery}` : ""}`;
 
@@ -131,9 +136,9 @@ const SearchResults = () => {
           : `Products in ${category || "All"}`}
       </h1>
 
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         {/* Filter Sidebar */}
-        <div className="w-1/4 p-4 bg-gray-100 rounded-lg shadow-md">
+        <div className="w-full md:w-1/4 p-4 bg-gray-100 rounded-lg shadow-md mb-4 md:mb-0">
           <h2 className="text-lg font-semibold mb-4">Filters</h2>
 
           <FilterDropdown
@@ -168,11 +173,11 @@ const SearchResults = () => {
         </div>
 
         {/* Product Results */}
-        <div className="w-3/4 p-4">
+        <div className="w-full md:w-3/4 p-4">
           {loading ? (
             <div>Loading...</div>
           ) : results.length > 0 ? (
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {results.map((product) => (
                 <div
                   key={product.id}
@@ -186,16 +191,29 @@ const SearchResults = () => {
                         className="aspect-square w-full rounded-md bg-gray-600 object-cover group-hover:opacity-75"
                       />
                     </a>
-                  </div>
-                  <div className="mt-4 pb-2 text-center">
-                    <a
-                      href={`https://wa.me/919061395430?text=${product.name}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 border rounded-md bg-gray-200 hover:bg-gray-400"
-                    >
-                      Enquire Now
-                    </a>
+                    <div className="pt-5 flex justify-between">
+                      <div>
+                        <div className="flex gap-2">
+                          <h3 className="capitalize font-medium text-lg">
+                            {product.category}
+                          </h3>
+                          <h3 className="font-medium text-lg">
+                            {product.name}
+                          </h3>
+                        </div>
+                        <h3 className="font-bold">&#8377; {product.price}</h3>
+                      </div>
+                      <div className="mt-4 pb-2 text-center">
+                        <a
+                          href={`https://wa.me/919061395430?text=${product.name}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 border rounded-md bg-gray-200 hover:bg-gray-400"
+                        >
+                          Enquire Now
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
